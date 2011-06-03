@@ -79,13 +79,14 @@ class Stage
     
     def update
 	    if  not @gosu.current_state.game_over  
+	    
 		   if @gosu.current_state.init  
 		     
 				unless @gosu.current_state.pause
 				     self.ball.update
 				     deletbrick
 				       @gosu.current_state.update_score( get_points)
-				       @gosu.current_state.update_level( @level )
+				       
 				     #game_over if ballOut 
 				     check_lives
 				     nextLevel unless bricksOut
@@ -275,6 +276,9 @@ end
        # Next level
        def nextLevel
 	       @level += 1
+	       #
+	       @gosu.current_state.update_level( @level )	
+	       
 	       @HiScore += get_points
 	       @Sound[1].play
 	       # Check finish

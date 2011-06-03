@@ -10,11 +10,13 @@ class MainMenu < State
 	      
 	    @current_option = 0
 	    
+	   @author = Gosu::Font.new(@gosu, MEDIA + 'AldotheApache.ttf', 28)
 	   @song = Gosu::Sample.new(@gosu, MEDIA + 'power_up_01.wav')
 	end
 	
 	def draw
-		@images[@current_option].draw(0, 0, UILayer)
+		@images[@current_option].draw(0, 0, UILayer)		
+		@author.draw('by johncraker', 620, 550, MouseLayer, 1, 1, 0xff000000)
 	end
   
 	def button_down(id)
